@@ -5,15 +5,16 @@
 // [3] Si on change le format du message SMS      → modifier cette classe
 
 class NotificationService {
-
-    // Méthode send qui envoie des notifications selon le type
-    send(user, type) {
-        if (type === 'email') {
-            console.log(`Sending email to ${user.email}`);
-        } else if (type === 'sms') {
-            console.log(`Sending SMS to ${user.phone}`);
-        } else if (type === 'push') {
-            console.log(`Sending push to device ${user.deviceId}`);
-        }
+  // Méthode send qui envoie des notifications selon le type
+  send(user, type) {
+    if (type === 'email') {
+      console.log(`Sending email to ${user.email}`);
+    } else if (type === 'sms') {
+      console.log(`Sending SMS to ${user.phone}`);
+    } else if (type === 'push') {
+      console.log(`Sending push to device ${user.deviceId}`);
     }
+  }
 }
+
+module.exports = NotificationService;

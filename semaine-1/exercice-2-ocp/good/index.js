@@ -5,9 +5,9 @@ const PushNotification = require('./pushNotification');
 const NotificationService = require('./notificationService');
 
 const user = {
-    email: 'user@example.com',
-    phone: '+221771234567',
-    deviceId: 'device-abc-123',
+  email: 'user@example.com',
+  phone: '+221771234567',
+  deviceId: 'device-abc-123',
 };
 
 // Email
