@@ -1,17 +1,17 @@
-# Exercice 2: Open/Closed Principle (OCP)
+## Exercice 2 — Open/Closed Principle (OCP)
 
-## Tableau des Responsabilités
+### Violation
+`NotificationService` contient un `if/else` par canal.
+Ajouter WhatsApp = modifier la classe = risque de régression.
 
-| Classe                    | Responsabilité                                          |
-| ------------------------- | ------------------------------------------------------- |
-| `emailNotification.js`    | Gérer l'envoi des notifications par email.              |
-| `pushNotification.js`     | Gérer l'envoi des notifications push.                   |
-| `smsNotification.js`      | Gérer l'envoi des notifications par SMS.                |
-| `notificationProvider.js` | Fournir une interface commune pour les notifications.   |
-| `notificationService.js`  | Coordonner l'envoi des notifications via les providers. |
+### Solution
+| Classe | Rôle |
+|---|---|
+| `NotificationProvider` | Contrat commun — ne change jamais |
+| `EmailNotification` | Implémentation email |
+| `SmsNotification` | Implémentation SMS |
+| `PushNotification` | Implémentation Push |
+| `NotificationService` | Orchestration — ne change jamais |
 
-## Instructions
-
-1. Étudiez les fichiers dans le dossier `bad` pour comprendre les violations du principe OCP.
-2. Analysez les fichiers dans le dossier `good` pour voir une implémentation respectant le principe OCP.
-3. Comparez les deux approches et notez les différences.
+### Résultat
+Nouveau canal = nouveau fichier. Zéro modification du code existant.
