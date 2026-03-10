@@ -1,9 +1,12 @@
+// ❌ VIOLATION OCP — bad/notificationService.bad.js
+// 3 raisons de changer :
+// [1] Si on ajoute un canal (WhatsApp, Wave...)  → modifier cette classe
+// [2] Si on change le format du message email    → modifier cette classe
+// [3] Si on change le format du message SMS      → modifier cette classe
+
 class NotificationService {
 
-    // this class violates the OCP because it has a method that is open for modification but closed for extension
-    // cette classe viole le principe de responsabilité unique et le principe de l'OCP
-
-
+    // Méthode send qui envoie des notifications selon le type
     send(user, type) {
         if (type === 'email') {
             console.log(`Sending email to ${user.email}`);
