@@ -1,0 +1,23 @@
+{
+  "name": "clean-api-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanseroland/clean-api-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanseroland/clean-api-portfolio/issues"
+  },
+  "homepage": "https://github.com/hanseroland/clean-api-portfolio#readme",
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  }
+}

@@ -1,0 +1,15 @@
+# dependencies
+/node_modules
+
+# build
+/dist
+
+# logs
+/logs
+*.log   
+# OS generated files
+.DS_Store
+Thumbs.db   
+
+# env files (can opt-in for committing if needed)
+.env*
