@@ -1,4 +1,10 @@
 // ❌ VIOLATION SRP — bad/userService.bad.js
+// 4 raisons de changer :
+// [1] Si on change de base de données → on touche UserService
+// [2] Si on change l'algo de hashage  → on touche UserService
+// [3] Si on change la règle métier    → on touche UserService
+// [4] Si on change le provider email  → on touche UserService
+
 
 class UserService {
 
