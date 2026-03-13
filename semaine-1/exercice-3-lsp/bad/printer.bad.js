@@ -26,3 +26,5 @@ class OldPrinter extends Printer {
 function scanDocument(printer) {
   printer.scan();
 }
+
+module.exports = { Printer, OldPrinter, scanDocument };
