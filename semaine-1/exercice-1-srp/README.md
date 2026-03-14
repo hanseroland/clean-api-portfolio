@@ -7,12 +7,12 @@
 
 ### Solution
 
-| Classe                 | Rôle                              |
-| ---------------------- | --------------------------------- |
-| `UserRepository`       | Accès DB uniquement               |
-| `PasswordService`      | Hashage uniquement                |
-| `EmailService`         | Envoie Email uniquement           |
-| `UserService`          | Orchestration uniquement          |
+| Classe            | Rôle                     |
+| ----------------- | ------------------------ |
+| `UserRepository`  | Accès DB uniquement      |
+| `PasswordService` | Hashage uniquement       |
+| `EmailService`    | Envoie Email uniquement  |
+| `UserService`     | Orchestration uniquement |
 
 ### Résultat
 

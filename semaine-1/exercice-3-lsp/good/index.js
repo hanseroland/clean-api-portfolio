@@ -2,15 +2,15 @@ const NewPrinter = require('./newPrinter');
 const OldPrinter = require('./oldPrinter');
 
 function printDocument(printer) {
-  printer.print();
+    printer.print();
 }
 function scanDocument(printer) {
-  printer.scan();
+    printer.scan();
 }
 
 // Les deux peuvent imprimer = LSP respecté
-printDocument(new NewPrinter());
-printDocument(new OldPrinter());
+printDocument(new NewPrinter()); // Printing document...
+printDocument(new OldPrinter()); // Printing document...
 
 // Seul NewPrinter peut scanner = contrat honnête
-scanDocument(new NewPrinter());
+scanDocument(new NewPrinter()); // Scanning document...

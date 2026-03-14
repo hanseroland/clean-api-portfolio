@@ -7,11 +7,17 @@ const userRepository = new UserRepository();
 const passwordService = new PasswordService();
 const emailService = new EmailService();
 
-const userService = new UserService(userRepository, passwordService, emailService);
+const userService = new UserService(
+  userRepository,
+  passwordService,
+  emailService,
+);
 
 // Démonstration
-userService.registerUser({
+userService
+  .registerUser({
     name: 'Hanse Roland',
     email: 'hanse@example.com',
     password: 'secret123',
-}).then(user => console.log('User registered:', user));
+  })
+  .then((user) => console.log('User registered:', user));
