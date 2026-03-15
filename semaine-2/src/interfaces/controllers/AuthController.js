@@ -4,21 +4,21 @@ class AuthController {
         this.loginUser = loginUser;
     }
 
-    async register(req, res) {
+    async register(req, res, next) {
         try {
             const user = await this.registerUser.execute(req.body);
             return res.status(201).json({ success: true, data: user });
         } catch (error) {
-            return res.status(400).json({ success: false, message: error.message });
+            next(error);
         }
     }
 
-    async login(req, res) {
+    async login(req, res, next) {
         try {
             const token = await this.loginUser.execute(req.body);
             return res.status(200).json({ success: true, token });
         } catch (error) {
-            return res.status(401).json({ success: false, message: error.message });
+            next(error);
         }
     }
 }
