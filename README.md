@@ -1,5 +1,7 @@
 # Clean API Portfolio
 
+![CI](https://github.com/hanseroland/clean-api-portfolio/actions/workflows/ci.yml/badge.svg)
+
 > Série d'exercices pratiques démontrant la maîtrise des principes 
 > SOLID et de la Clean Architecture en Node.js/Express/MySQL.
 
