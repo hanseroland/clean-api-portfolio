@@ -8,11 +8,11 @@ const createAuthRouter = (authController) => {
 
     router.post('/register',
         validateMiddleware(registerSchema),
-        (req, res) => authController.register(req, res));
+        (req, res, next) => authController.register(req, res, next));
 
     router.post('/login',
         validateMiddleware(loginSchema),
-        (req, res) => authController.login(req, res));
+        (req, res, next) => authController.login(req, res, next));
 
     return router;
 };
