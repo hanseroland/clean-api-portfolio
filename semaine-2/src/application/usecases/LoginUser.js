@@ -8,10 +8,11 @@ class LoginUser {
     async execute(userData) {
 
         const existing = await this.userRepository.findByEmail(userData.email);
-        if (!existing) throw new Error('Invalid email');
+        if (!existing) throw new Error('Invalid email or password');
 
         const validPassword = await this.passwordService.compare(userData.password, existing.password);
-        if (!validPassword) throw new Error('Invalid password');
+        if (!validPassword) throw new Error('Invalid email or password');
+
 
         return this.tokenService.generate({ userId: existing.id });
 
