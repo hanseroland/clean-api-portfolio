@@ -7,17 +7,17 @@ describe('LoginUser', () => {
     let mockTokenService;
 
     beforeEach(() => {
-        // Faux repository — simule la DB
+        // Faux repository : simule la DB
         mockUserRepository = {
             findByEmail: jest.fn(),
         };
 
-        // Faux service — simule bcrypt
+        // Faux service : simule bcrypt
         mockPasswordService = {
             compare: jest.fn(),
         };
 
-        // Faux service — simule jsonwebtoken
+        // Faux service : simule jsonwebtoken
         mockTokenService = {
             generate: jest.fn(),
         };
@@ -32,25 +32,25 @@ describe('LoginUser', () => {
             email: 'hanse@example.com',
             password: 'hashedPassword123',
         });
-        mockPasswordService.compare.mockResolvedValue(true); // ← password correct
+        mockPasswordService.compare.mockResolvedValue(true);
         mockTokenService.generate.mockReturnValue('fake-jwt-token');
 
-        // Act
+
         const result = await loginUser.execute({
             email: 'hanse@example.com',
             password: 'secret123',
         });
 
-        // Assert
-        expect(result).toBe('fake-jwt-token'); // ← Login retourne un token
+
+        expect(result).toBe('fake-jwt-token');
         expect(mockTokenService.generate).toHaveBeenCalledTimes(1);
     });
 
     it('should throw error if email does not exist', async () => {
-        // Arrange — findByEmail retourne null
+
         mockUserRepository.findByEmail.mockResolvedValue(null);
 
-        // Act & Assert
+
         await expect(
             loginUser.execute({
                 email: 'inexistant@example.com',
@@ -63,15 +63,15 @@ describe('LoginUser', () => {
     });
 
     it('should throw error if password is incorrect', async () => {
-        // Arrange
+
         mockUserRepository.findByEmail.mockResolvedValue({
             id: 1,
             email: 'hanse@example.com',
             password: 'hashedPassword123',
         });
-        mockPasswordService.compare.mockResolvedValue(false); // ← mauvais password
+        mockPasswordService.compare.mockResolvedValue(false);
 
-        // Act & Assert
+
         await expect(
             loginUser.execute({
                 email: 'hanse@example.com',

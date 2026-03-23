@@ -6,13 +6,13 @@ describe('RegisterUser', () => {
     let mockPasswordService;
 
     beforeEach(() => {
-        // Faux repository — simule la DB
+        // Faux repository : simule la DB
         mockUserRepository = {
             findByEmail: jest.fn(),
             save: jest.fn(),
         };
 
-        // Faux service — simule bcrypt
+        // Faux service : simule bcrypt
         mockPasswordService = {
             hash: jest.fn(),
         };
@@ -21,7 +21,7 @@ describe('RegisterUser', () => {
     });
 
     it('should register a new user successfully', async () => {
-        // Arrange — prépare les données
+        // Arrange : prépare les données
         mockUserRepository.findByEmail.mockResolvedValue(null);
         mockPasswordService.hash.mockResolvedValue('hashedPassword123');
         mockUserRepository.save.mockResolvedValue({
@@ -44,13 +44,13 @@ describe('RegisterUser', () => {
     });
 
     it('should throw error if email already exists', async () => {
-        // Arrange — l'email existe déjà
+
         mockUserRepository.findByEmail.mockResolvedValue({
             id: 1,
             email: 'hanse@example.com',
         });
 
-        // Act & Assert
+
         await expect(
             registerUser.execute({
                 name: 'Hanse Roland',
